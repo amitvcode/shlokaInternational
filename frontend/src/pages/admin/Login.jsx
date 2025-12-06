@@ -11,7 +11,7 @@ const Login = () => {
   const onFinish = async (values) => {
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/api/login", {
+      const res = await axios.post("https://shlokainternational-2.onrender.com/api/login", {
         email: values.email,
         password: values.password,
       });

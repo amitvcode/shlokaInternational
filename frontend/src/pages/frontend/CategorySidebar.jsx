@@ -140,7 +140,7 @@ export default function CategorySidebar() {
                 <img
                   src={
                     sub.image
-                      ? `http://localhost:5000/uploads/subCategories/${sub.image}`
+                      ? `https://shlokainternational-2.onrender.com/uploads/subCategories/${sub.image}`
                       : "https://via.placeholder.com/300x200?text=No+Image"
                   }
                   alt={sub.name}

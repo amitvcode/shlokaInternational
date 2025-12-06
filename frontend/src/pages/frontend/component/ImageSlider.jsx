@@ -9,12 +9,12 @@ export default function   ImageSlider() {
   useEffect(() => {
     const fetchSliders = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/slider");
+        const res = await axios.get("https://shlokainternational-2.onrender.com/api/slider");
         if (res.data && res.data.length > 0) {
           // Flatten all image arrays from each slider document
           const allImages = res.data.flatMap((slider) =>
             slider.images.map(
-              (img) => `http://localhost:5000/uploads/slider/${img}`
+              (img) => `https://shlokainternational-2.onrender.com/uploads/slider/${img}`
             )
           );
           setImages(allImages);

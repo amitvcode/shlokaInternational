@@ -11,7 +11,7 @@ export default function SliderManager() {
 
   const fetchSliders = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/slider");
+      const res = await axios.get("https://shlokainternational-2.onrender.com/api/slider");
       setSliders(res.data);
     } catch (error) {
       console.error("Error fetching sliders:", error);
@@ -41,7 +41,7 @@ export default function SliderManager() {
 
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/slider/add", formData, {
+      await axios.post("https://shlokainternational-2.onrender.com/api/slider/add", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       alert("Slider uploaded successfully!");
@@ -59,7 +59,7 @@ export default function SliderManager() {
     if (!window.confirm("Are you sure you want to delete this slider?")) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/slider/${id}`);
+      await axios.delete(`https://shlokainternational-2.onrender.com/api/slider/${id}`);
       alert("Slider deleted successfully");
       fetchSliders();
     } catch (error) {

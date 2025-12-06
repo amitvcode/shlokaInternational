@@ -17,7 +17,7 @@ export default function ProductsPage() {
   useEffect(() => {
     if (subcategoryId) {
       axios
-        .get(`http://localhost:5000/api/products/subcategory/${subcategoryId}`)
+        .get(`https://shlokainternational-2.onrender.com/api/products/subcategory/${subcategoryId}`)
         .then((res) => setProducts(res.data))
         .catch((err) => console.error("Error fetching products:", err));
     }

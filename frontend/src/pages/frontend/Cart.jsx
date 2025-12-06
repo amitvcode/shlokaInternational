@@ -41,13 +41,13 @@ const Cart = () => {
           title: item.title,
           quantity: item.quantity || 1,
           image: item.images?.[0] ? 
-            (item.images[0].includes('http') ? item.images[0] : `http://localhost:5000/uploads/products/${item.images[0]}`) 
+            (item.images[0].includes('http') ? item.images[0] : `https://shlokainternational-2.onrender.com/uploads/products/${item.images[0]}`) 
             : 'No image',
           productId: item._id
         }))
       };
 
-      const response = await axios.post('http://localhost:5000/api/enquiry', enquiryData);
+      const response = await axios.post('https://shlokainternational-2.onrender.com/api/enquiry', enquiryData);
       
       setSubmitStatus({ 
         success: true, 
@@ -141,7 +141,7 @@ const Cart = () => {
                       item.images?.[0]
                         ? item.images[0].includes("http")
                           ? item.images[0]
-                          : `http://localhost:5000/uploads/products/${item.images[0]}`
+                          : `https://shlokainternational-2.onrender.com/uploads/products/${item.images[0]}`
                         : "https://via.placeholder.com/50"
                     }
                     alt={item.title}
@@ -330,7 +330,7 @@ const Cart = () => {
                   item.images?.[0]
                     ? item.images[0].includes('http')
                       ? item.images[0]                 // full URL
-                      : `http://localhost:5000/uploads/products/${item.images[0]}` // filename → URL
+                      : `https://shlokainternational-2.onrender.com/uploads/products/${item.images[0]}` // filename → URL
                     : 'https://via.placeholder.com/100'
                 }
                 alt={item.title}

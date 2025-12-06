@@ -19,7 +19,7 @@ export default function Header() {
             if (query.trim().length > 1) { // Reduced to 1 character for better UX
                 try {
                     setIsLoading(true);
-                    const response = await axios.get(`http://localhost:5000/api/search?q=${encodeURIComponent(query)}`);
+                    const response = await axios.get(`https://shlokainternational-2.onrender.com/api/search?q=${encodeURIComponent(query)}`);
                     setSearchResults(response.data);
                 } catch (error) {
                     console.error('Search error:', error);

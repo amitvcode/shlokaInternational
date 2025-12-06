@@ -14,7 +14,7 @@ export default function SubcategoriesSlider() {
   useEffect(() => {
     const fetchSubcategories = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/subCategory");
+        const res = await axios.get("https://shlokainternational-2.onrender.com/api/subCategory");
         setSubcategories(res.data);
       } catch (err) {
         console.error("Error fetching subcategories:", err);
@@ -110,7 +110,7 @@ export default function SubcategoriesSlider() {
                 <img
                   src={
                     sub.image
-                      ? `http://localhost:5000/uploads/subCategories/${sub.image}`
+                      ? `https://shlokainternational-2.onrender.com/uploads/subCategories/${sub.image}`
                       : "https://via.placeholder.com/300x200?text=No+Image"
                   }
                   alt={sub.name}
