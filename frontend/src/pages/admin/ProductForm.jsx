@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import API from "../../api/api";
 import { FaUpload, FaBoxes, FaEdit, FaTrashAlt, FaSearch } from "react-icons/fa";
 import { Editor } from "@tinymce/tinymce-react";
+import { getImageUrl } from "../../api/api";
 
 export default function ProductForm() {
   const [title, setTitle] = useState("");
@@ -82,9 +83,7 @@ export default function ProductForm() {
       const updatedExisting = existingImages.filter((img) => img !== imageName);
       setExistingImages(updatedExisting);
       setPreviewImages([
-        ...updatedExisting.map(
-          (img) => `http://localhost:5000/uploads/products/${img}`
-        ),
+        ...updatedExisting.map(img => getImageUrl(`products/${img}`)),
         ...newImages.map((file) => URL.createObjectURL(file)),
       ]);
       alert("Image deleted successfully!");
@@ -188,7 +187,7 @@ export default function ProductForm() {
     
     setExistingImages(product.images || []);
     const existingPreviews = product.images?.map(
-      (img) => `http://localhost:5000/uploads/products/${img}`
+      (img) => getImageUrl(`products/${img}`)
     );
     setPreviewImages(existingPreviews || []);
     setNewImages([]);
@@ -444,7 +443,7 @@ export default function ProductForm() {
                       <td className="border border-gray-300 px-4 py-2 text-center">
                         {p.images?.[0] ? (
                           <img
-                            src={`http://localhost:5000/uploads/products/${p.images[0]}`}
+                            src={getImageUrl(`products/${p.images[0]}`)}
                             alt={p.title}
                             className="w-16 h-16 object-cover rounded-md mx-auto"
                           />

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import API from "../../api/api";
+import { getImageUrl } from "../../api/api";
 import axios from "axios";
 import { FaTrash, FaUpload, FaImages } from "react-icons/fa";
 
@@ -114,7 +116,7 @@ export default function SliderManager() {
                   {slider.images.map((img, idx) => (
                     <img
                       key={idx}
-                      src={`http://localhost:5000/uploads/slider/${img}`}
+                      src={getImageUrl(`slider/${img}`)}
                       alt="slider"
                       className="w-full h-32 object-cover rounded-xl group-hover:scale-105 transition-transform"
                     />

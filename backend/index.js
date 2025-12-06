@@ -17,7 +17,11 @@ const app = express();
 app.use("/uploads", express.static("uploads"));
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL,   // Allow your frontend
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
 app.use(express.json());
 app.use("/api/main-categories", mainCategoryRoutes);
 app.use("/api/categories", categoryRoutes);

@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import DOMPurify from "dompurify";
 import { useCart } from "../../context/CartContext";
+import API from "../../api/api";
+import { getImageUrl } from "../../api/api";
 
 export default function ProductsPage() {
     const { addToCart } = useCart();
@@ -78,7 +80,7 @@ export default function ProductsPage() {
                             aria-label={`Select thumbnail ${index + 1}`}
                           >
                             <img
-                              src={`http://localhost:5000/uploads/products/${img}`}
+                              src={getImageUrl(`products/${img}`)}
                               alt={`${prod.title} thumb ${index + 1}`}
                               className="w-full h-full object-contain  border"
                             />
@@ -106,11 +108,9 @@ export default function ProductsPage() {
                     <img
                       src={
                         selectedImage[prod._id]
-                          ? `http://localhost:5000/uploads/products/${
-                              selectedImage[prod._id]
-                            }`
+                          ? getImageUrl(`products/${selectedImage[prod._id]}`)
                           : prod.images && prod.images.length > 0
-                          ? `http://localhost:5000/uploads/products/${prod.images[0]}`
+                          ? getImageUrl(`products/${prod.images[0]}`)
                           : "https://via.placeholder.com/500x500?text=No+Image"
                       }
                       alt={prod.title}
@@ -141,7 +141,7 @@ export default function ProductsPage() {
                           aria-label={`Select thumbnail ${index + 1}`}
                         >
                           <img
-                            src={`http://localhost:5000/uploads/products/${img}`}
+                            src={getImageUrl(`products/${img}`)}
                             alt={`${prod.title} thumb ${index + 1}`}
                             className="w-full h-full object-contain rounded-sm border"
                           />

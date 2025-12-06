@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../../api/api";
+import { getImageUrl } from "../../api/api";
 import { FaTrashAlt, FaPlus, FaEdit, FaSearch } from "react-icons/fa";
 
 export default function SubCategoryForm() {
@@ -90,7 +91,7 @@ export default function SubCategoryForm() {
     setCategory(sub.category?._id || "");
     setPreview(
       sub.image
-        ? `http://localhost:5000/uploads/subCategories/${sub.image}`
+        ? getImageUrl(`subCategories/${sub.image}`)
         : null
     );
     setImage(null);
@@ -266,7 +267,7 @@ export default function SubCategoryForm() {
                   <td className="px-6 py-4">
                     {sub.image ? (
                       <img
-                        src={`http://localhost:5000/uploads/subCategories/${sub.image}`}
+                        src={getImageUrl(`subCategories/${sub.image}`)}
                         alt={sub.name}
                         className="w-20 h-20 object-cover rounded-lg"
                       />
