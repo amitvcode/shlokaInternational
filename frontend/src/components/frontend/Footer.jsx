@@ -47,6 +47,7 @@ export default function Footer() {
                         <li><a href="/categories" className="hover:text-indigo-600">Products</a></li>
                         <li><a href="/certificate" className="hover:text-indigo-600">Certificate</a></li>
                         <li><a href="/contactpage" className="hover:text-indigo-600">Contact Us</a></li>
+                        <li><a href="/admin/login" className="hover:text-indigo-600">Admin</a></li>
                     </ul>
                 </div>
 
